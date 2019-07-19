@@ -1,6 +1,6 @@
 package _01_introduction_to_encapsulation;
 
-/*
+/**
  * Encapsulation is a way of protecting the data in a class from being
  * unintentionally altered from another class.
  * 
@@ -16,12 +16,12 @@ package _01_introduction_to_encapsulation;
  * */
 
 public class EncapsulateTheData {
-	/*
+	/**
 	 * 1. Encapsulate the member variables. // Add restrictions to the setters
 	 * according to the comment.
 	 */
 
-	/*
+	/**
 	 * 2. Create a new JUnit Test case and write tests to verify that // the member
 	 * variables' getters and setters are working
 	 */
@@ -42,28 +42,62 @@ public class EncapsulateTheData {
 		}
 	}
 
-	private float degreesTurned; /* must be locked between 0.0 and 360.0 inclusive. */ 
-	//^wants abs. value of degrees turned or current orientation with ref?
+	private float degreesTurned;
+
+	/** must be locked between 0.0 and 360.0 inclusive. */
+	/** ^wants abs. value of degrees turned or current orientation with ref?*/
 
 	public float getDegreesTurned() {
 		return degreesTurned;
 	}
 
 	public void turnXDegrees(float X) {
+		if(Math.abs(X) > 360) {
+			X = X % 360;
+		}
 		if (X < 0) {
 			X = 360 + X;
 		}
-		//^current orientation w/ ref
-		if (X > 360) {
-			degreesTurned = X % 360;
+		// ^current orientation w/ ref
+		degreesTurned = X;
+	}
+
+	private String nomenclature = " "; 
+	
+	/** must not be set to a blank string. Blank Strings get set to a space */
+
+	public String getNomenclature() {
+		/*
+		 * if (nomenclature.isEmpty()) { return " "; } else { return nomenclature; }
+		 */
+		return nomenclature;
+
+	}
+
+	public void setNomenclature(String newNomenclature) {
+		if (newNomenclature.isEmpty()) {
+			nomenclature = " ";
 		} else {
-			degreesTurned = X;
+			nomenclature = newNomenclature;
 		}
 	}
 
-	private String nomenclature = " "; /* must not be set to a blank string. Blank Strings get set to a space */
-
-	private Object memberObj; /* must not be a String. If it is a String, set it equal to a new Object(); */
+	private Object memberObj; 
+	
+	/** must not be a String. If it is a String, set it equal to a new Object(); */
+	
+	public Object getObj() {
+		return memberObj;
+	}
+	
+	public void setMemObj(Object newObject) {
+		String test = "a";
+		if(newObject.getClass() == test.getClass()) {
+			memberObj = new Object();
+		} else {
+			memberObj = newObject;
+		}
+	}
 
 	public static void main(String[] args) {
 
