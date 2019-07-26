@@ -19,12 +19,12 @@ public abstract class Polymorph {
 		this.ySpeed = yspeed;
 	}
 
-	public void setX(int xS) {
-		this.x = xS;
+	public void setX(int xN) {
+		this.x = xN;
 	}
 
-	public void setY(int yS) {
-		this.y = yS;
+	public void setY(int yN) {
+		this.y = yN;
 	}
 
 	public int getX() {
@@ -34,6 +34,23 @@ public abstract class Polymorph {
 
 	public int getY() {
 		return y;
+
+	}
+	public void setXSpeed(int xS) {
+		this.xSpeed = xS;
+	}
+
+	public void setYSpeed(int yS) {
+		this.ySpeed = yS;
+	}
+
+	public int getXSpeed() {
+		return xSpeed;
+
+	}
+
+	public int getYSpeed() {
+		return ySpeed;
 
 	}
 
@@ -53,9 +70,7 @@ public abstract class Polymorph {
 		return this.length;
 	}
 
-	public void update() {
-		if(xSpeed > 0 || ySpeed > 0)
-	}
+	public abstract void update();
 
 	public abstract void draw(Graphics g);
 }
