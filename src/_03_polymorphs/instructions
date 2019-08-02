@@ -27,5 +27,5 @@ ArrayList and add a bunch of different types of Polymorph objects to the array l
 following…
 	a) Create a Polymorph that moves in a circle. hint: Math.sin() Math.cos() 					 [DONE]
 	b) Create a Polymorph that follows your mouse. 												 [DONE]
-	c) Create a Polymorph that displays an image.  												 [IN PROGRESS]
-	d) Create a Polymorph that displays a JOptionPane message dialog when clicked.
+	c) Create a Polymorph that displays an image.  												 [DONE]
+	d) Create a Polymorph that displays a JOptionPane message dialog when clicked.				 [IN PROGRESS]
