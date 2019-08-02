@@ -33,5 +33,4 @@ public class CircleMorph extends Polymorph{
 		setY((int) (orgY + (rand * Math.sin(angle))));
 		
 	}
-	
 }

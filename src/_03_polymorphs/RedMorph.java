@@ -2,6 +2,7 @@ package _03_polymorphs;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Point;
 
 public class RedMorph extends Polymorph {
 
@@ -20,5 +21,4 @@ public class RedMorph extends Polymorph {
 		// TODO Auto-generated method stub
 		
 	}
-
 }

@@ -20,5 +20,4 @@ public class BluePolymorph extends Polymorph{
 		// TODO Auto-generated method stub
 		
 	}
-	
 }

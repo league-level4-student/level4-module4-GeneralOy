@@ -3,6 +3,9 @@ package _03_polymorphs;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.MouseInfo;
+import java.awt.Point;
+import java.awt.PointerInfo;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -20,6 +23,8 @@ public class PolymorphWindow extends JPanel implements ActionListener {
 	private Timer timer;
 	Random r = new Random();
 	ArrayList<Polymorph> Morphs = new ArrayList<Polymorph>();
+	ArrayList<Polymorph> MouseMorphs = new ArrayList<Polymorph>();
+	Polymorph ImageMorph1;
 	Polymorph bluePoly1;
 	Polymorph redMorph1;
 	Polymorph MovingMorph1;
@@ -33,6 +38,9 @@ public class PolymorphWindow extends JPanel implements ActionListener {
 	Polymorph CircleMorph2;
 	Polymorph CircleMorph3;
 	Polymorph CircleMorph4;
+	Polymorph MouseMorph1;
+	Polymorph MouseMorph2;
+	
 
 	public static void main(String[] args) {
 		new PolymorphWindow().buildWindow();
@@ -45,7 +53,8 @@ public class PolymorphWindow extends JPanel implements ActionListener {
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.pack();
 		window.setVisible(true);
-
+		
+		ImageMorph1 = new ImageMorph(r.nextInt(350), r.nextInt(350));
 		bluePoly1 = new BluePolymorph(r.nextInt(450), r.nextInt(450));
 		redMorph1 = new RedMorph(r.nextInt(480), r.nextInt(480));
 		MovingMorph1 = new MovingMorph(r.nextInt(480), r.nextInt(480));
@@ -55,6 +64,9 @@ public class PolymorphWindow extends JPanel implements ActionListener {
 		CircleMorph2 = new CircleMorph(r.nextInt(490), r.nextInt(490));
 		CircleMorph3 = new CircleMorph(r.nextInt(490), r.nextInt(490));
 		CircleMorph4 = new CircleMorph(r.nextInt(490), r.nextInt(490));
+		MouseMorph1 = new MouseMorph();
+		MouseMorph2 = new MouseMorph();
+		Morphs.add(ImageMorph1);
 		Morphs.add(bluePoly1);
 		Morphs.add(redMorph1);
 		Morphs.add(MovingMorph1);
@@ -64,7 +76,14 @@ public class PolymorphWindow extends JPanel implements ActionListener {
 		Morphs.add(CircleMorph2);
 		Morphs.add(CircleMorph3);
 		Morphs.add(CircleMorph4);
-
+		Morphs.add(MouseMorph1);
+		Morphs.add(MouseMorph2);
+		MouseMorphs.add(MouseMorph1);
+		MouseMorphs.add(MouseMorph2);
+		for(Polymorph m: MouseMorphs) {
+			m.setXoffset(25 - r.nextInt(50));
+			m.setYoffset(25 - m.getXoffset());
+		}
 		timer = new Timer(1000 / 30, this);
 		timer.start();
 	}
@@ -85,9 +104,16 @@ public class PolymorphWindow extends JPanel implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		repaint();
+		PointerInfo a = MouseInfo.getPointerInfo();
+		Point b = a.getLocation();
+		for (Polymorph M : MouseMorphs) {
+			M.setX(((int) b.getX()) - 3 + M.getXoffset());
+			M.setY(((int) b.getY()) - 50 + M.getYoffset());
+		}
 		for (Polymorph M : Morphs) {
 			M.update();
 		}
+
 		// bluePoly.update();
 		// redMorph.update();
 		// greenMovingMorph.update();
