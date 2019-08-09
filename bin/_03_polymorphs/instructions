@@ -28,4 +28,4 @@ following…
 	a) Create a Polymorph that moves in a circle. hint: Math.sin() Math.cos() 					 [DONE]
 	b) Create a Polymorph that follows your mouse. 												 [DONE]
 	c) Create a Polymorph that displays an image.  												 [DONE]
-	d) Create a Polymorph that displays a JOptionPane message dialog when clicked.				 [IN PROGRESS]
+	d) Create a Polymorph that displays a JOptionPane message dialog when clicked.				 [DONE] ? - for some reason the y on the clickableMorph just doesn't seem to work correctly
