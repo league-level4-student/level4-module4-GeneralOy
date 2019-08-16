@@ -12,18 +12,20 @@ public class GeneralPractitioner extends Doctor {
 	@Override
 	protected Object performsSurgery() {
 		// TODO Auto-generated method stub
-		return null;
+		return false;
 	}
 
 	@Override
 	protected Object makesHouseCalls() {
 		// TODO Auto-generated method stub
-		return null;
+		return true;
 	}
 
 	@Override
 	protected void doMedicine() {
-		// TODO Auto-generated method stub
+		for (Patient patient  : assignedPatients) {
+			patient.checkPulse();
+		}
 		
 	}
 

@@ -12,13 +12,13 @@ public class Surgeon extends Doctor {
 	@Override
 	protected Object performsSurgery() {
 		// TODO Auto-generated method stub
-		return null;
+		return true;
 	}
 
 	@Override
 	protected Object makesHouseCalls() {
 		// TODO Auto-generated method stub
-		return null;
+		return false;
 	}
 
 	@Override

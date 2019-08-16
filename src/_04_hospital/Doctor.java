@@ -1,10 +1,10 @@
 package _04_hospital;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Doctor {
-	private int numPatients;
-	private List<Patient> assignedPatients;
+	protected List<Patient> assignedPatients = new ArrayList<Patient>();
 	
 	Doctor() {
 		
@@ -22,8 +22,13 @@ public abstract class Doctor {
 	public int getNumPatients() {
 		return assignedPatients.size();
 	}
-	public void assignPatient(Patient patient) {
+	public void assignPatient(Patient patient) throws Exception {
+		if(assignedPatients.size() < 3) {
 		assignedPatients.add(patient);
+		patient.Assigned();
+		}else if(assignedPatients.size() >= 3) {
+			throw new DoctorFullException();
+		}
 	}
 
 }
