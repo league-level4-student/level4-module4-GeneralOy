@@ -30,19 +30,18 @@ class EncapsulationTest {
 		En.turnXDegrees((float) 25.3);
 		assertEquals((float) 25.3, En.getDegreesTurned());
 		En.turnXDegrees((float) 2.673);
-		;
+
 		assertEquals((float) 2.673, En.getDegreesTurned());
 		En.turnXDegrees((float) 720);
 		assertEquals((float) 0, En.getDegreesTurned());
-		// En.turnXDegrees((float)395.2);;
-		// assertEquals((float)35.2, En.getDegreesTurned());
-		// ^this thing again, the math is right and if i make the 395.2 negative it
-		// spits out 360-35.2, but if its written like this it adds 0.000006 * the
-		// decimal
+		//////////////////////// math hello?
+		En.turnXDegrees((float) 395.4);
+
+		assertEquals((float) 35.4, En.getDegreesTurned(), 0.001);
+		/**when using doubles, need to add a third parameter telling computer the level of accuracy wanted*/
 		En.turnXDegrees((float) -30.0);
 		assertEquals((float) 330.0, En.getDegreesTurned());
 		En.turnXDegrees((float) -420.6);
-		;
 		assertEquals((float) 299.4, En.getDegreesTurned());
 	}
 
